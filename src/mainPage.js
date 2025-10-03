@@ -1,3 +1,6 @@
+import { VC_API_KEY, GM_API_KEY } from './keys.js';
+import { searchWeather } from './weatherPage.js';
+
 export function loadMainPage() {
     const app = document.getElementById('app');
 
@@ -25,4 +28,67 @@ export function loadMainPage() {
             console.log('Please enter a city name');
         }
     });
+
+    // Initialize Google Places
+    initializeAutocomplete();
+}
+
+async function initializeAutocomplete() {
+    try {
+        // Import the PlaceAutocompleteElement from Google Maps Places library
+        const { PlaceAutocompleteElement } = await google.maps.importLibrary("places");
+        
+        // Create a new PlaceAutocompleteElement
+        const autocompleteElement = new PlaceAutocompleteElement({
+            includedPrimaryTypes: ['locality', 'administrative_area_level_1'], // Cities and regions
+            requestedLanguage: 'en',
+            requestedRegion: 'us' // You can change this to your preferred region
+        });
+
+        // Replace the regular input with the autocomplete element
+        const searchInput = document.getElementById('search-input');
+        const searchArea = document.querySelector('.search-area');
+        
+        // Hide the original input
+        searchInput.style.display = 'none';
+        
+        // Add CSS class and attributes for styling
+        autocompleteElement.className = 'places-autocomplete';
+        autocompleteElement.setAttribute('placeholder', 'Search City');
+        
+        // Insert the autocomplete element before the search button
+        const searchButton = document.getElementById('search-button');
+        searchArea.insertBefore(autocompleteElement, searchButton);
+
+        // Listen for place selection
+        autocompleteElement.addEventListener('gmp-select', (event) => {
+            const placePrediction = event.placePrediction;
+            
+            try {
+                // Convert PlacePrediction to Place object
+                const place = placePrediction.toPlace();
+                console.log('Selected place:', place);
+                console.log('Place properties:', Object.keys(place));
+                
+                // Try different property names that might contain the city name
+                const selectedCity = placePrediction.text?.text;
+
+                console.log(`Selected city: ${selectedCity}`);
+                
+                // You can trigger your weather search here
+                searchWeather(selectedCity);
+            } catch (error) {
+                console.error('Error getting place details:', error);
+            }
+        });
+
+        // Handle error events
+        autocompleteElement.addEventListener('gmp-error', (event) => {
+            console.error('Places API error:', event);
+        });
+
+    } catch (error) {
+        console.error('Failed to initialize Google Places Autocomplete:', error);
+        console.log('Falling back to regular text input');
+    }
 }

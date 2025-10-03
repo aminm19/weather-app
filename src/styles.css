@@ -22,6 +22,16 @@ body::before {
     z-index: -1;
 }
 
+#app{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    border: 1px solid red;
+}
+
 .home-container {
     padding: 0px 20px 20px 20px;
     background-color: #7f7f98;
@@ -67,5 +77,118 @@ body::before {
 }
 
 #search-button:hover {
+    background-color: #333e4a;
+}
+
+/* Google Places Autocomplete Element Styling */
+.places-autocomplete {
+    width: 200px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    
+    /* Custom CSS properties for PlaceAutocompleteElement */
+    --gmp-option-background-color: rgb(46, 24, 46);
+    --gmp-option-text-color: white;
+    background-color: rgb(46, 24, 46);
+    color: white;
+    
+    /* Additional properties for input text styling */
+    --gmp-primary-color: white;
+    --gmp-outline-color: rgb(46, 24, 46);
+    --gmp-background-color: rgb(46, 24, 46);
+    color-scheme: dark;
+}
+
+/* Style the internal input of the autocomplete element */
+gmp-place-autocomplete {
+    background-color: rgb(46, 24, 46) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 6px !important;
+    width: 200px !important;
+    font-size: 16px !important;
+    
+    /* Force text color using CSS custom properties */
+    --gmp-primary-color: white !important;
+    --gmp-option-text-color: white !important;
+    --gmp-background-color: rgb(46, 24, 46) !important;
+}
+
+/* Additional targeting for the input text */
+gmp-place-autocomplete input,
+gmp-place-autocomplete input[type="text"] {
+    color: white !important;
+    background-color: rgb(46, 24, 46) !important;
+    -webkit-text-fill-color: white !important;
+}
+
+/* Target the internal parts of the autocomplete element */
+gmp-place-autocomplete::part(text-input) {
+    background-color: rgb(46, 24, 46) !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px !important;
+}
+
+gmp-place-autocomplete::part(option) {
+    background-color: rgb(46, 24, 46) !important;
+    color: white !important;
+}
+
+gmp-place-autocomplete::part(option):hover {
+    background-color: rgb(66, 44, 66) !important;
+}
+
+.weather-container {
+    border: 1px solid white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 60%;
+    width: 70%;
+    background-color: #16161f89;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+}
+
+.left{
+    grid-column: 1 / 2;  /* Takes up first column */
+    grid-row: 1 / 3;     /* Spans both rows (1 to 3 = rows 1 and 2) */
+    border: 1px solid blue;
+}
+
+.info{
+    grid-column: 2 / 3;  /* Takes up second column */
+    grid-row: 1 / 2;     /* Takes up first row */
+    border: 1px solid green;
+}
+
+.weekly{
+    grid-column: 2 / 3;  /* Takes up second column */
+    grid-row: 2 / 3;     /* Takes up second row */
+    border: 1px solid orange;
+}
+
+.new-search {
+    display: flex;
+    gap: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    background-color: #15202d;
+    color: gray;
+    cursor: pointer;
+}
+
+#new-search-button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 6px;
+    color: gray;
+    cursor: pointer;
+}
+
+#new-search-button:hover {
     background-color: #333e4a;
 }
