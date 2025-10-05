@@ -8,7 +8,7 @@ export function loadWeatherPageDOM(city) {
                 <div class="new-search">
                     <button id="new-search-button">New Search</button>
                 </div>
-                <div class="weather">
+                <div class="weather" id="weather">
                     <div class="top-row">
                         <div class="left-side">
                             <h2 id="location">${city}</h2>
@@ -84,6 +84,7 @@ export function updateWeatherDOM(city, data) {
     const dateElem = document.getElementById('date');
     const probabilityElem = document.getElementById('probability');
     const uvIndexElem = document.getElementById('uv-index');
+    const weatherElem = document.getElementById('weather');
 
     const temperature = data ? data.currentConditions.temp : '--';
     const description = data ? data.currentConditions.conditions : 'N/A';
@@ -140,7 +141,11 @@ export function updateWeatherDOM(city, data) {
         descriptionElem.textContent = description;
     }
     if (weatherIconElem) {
-        weatherIconElem.src = `https://www.weatherbit.io/static/img/icons/${iconCode}.png`;
+        if (iconCode === 'clear-day') {
+            weatherIconElem.src = `./assets/sunny/icons8-sun-90.png`;
+        }else{
+            weatherIconElem.src = `https://www.weatherbit.io/static/img/icons/${iconCode}.png`;
+        }
         weatherIconElem.alt = description;
     }
     if (humidityElem) {
