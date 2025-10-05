@@ -1,0 +1,162 @@
+<svg width="100%" height="100%" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Day windy sky gradient -->
+  <defs>
+    <linearGradient id="dayWindyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B0E0E6;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="windCloudShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="3" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="url(#dayWindyGradient)"/>
+  
+  <!-- Sun partially obscured by fast-moving clouds -->
+  <circle cx="200" cy="120" r="45" fill="#FFD700" opacity="0.6">
+    <animate attributeName="opacity" values="0.4;0.8;0.4;0.7;0.3;0.9;0.5" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Fast-moving fuller clouds -->
+  <g filter="url(#windCloudShadow)">
+    <!-- Wind-stretched cloud 1 - fuller and more realistic -->
+    <g opacity="0.8">
+      <circle cx="120" cy="110" r="45" fill="#FFFFFF"/>
+      <circle cx="160" cy="105" r="55" fill="#FFFFFF"/>
+      <circle cx="200" cy="110" r="50" fill="#FFFFFF"/>
+      <circle cx="240" cy="115" r="40" fill="#FFFFFF"/>
+      <circle cx="280" cy="120" r="35" fill="#FFFFFF"/>
+      <ellipse cx="200" cy="125" rx="90" ry="25" fill="#FFFFFF"/>
+      <animateTransform attributeName="transform" type="translate" values="-350,0;1550,0" dur="8s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Wind-stretched cloud 2 -->
+    <g opacity="0.7">
+      <circle cx="450" cy="150" r="50" fill="#F0F0F0"/>
+      <circle cx="495" cy="145" r="60" fill="#F0F0F0"/>
+      <circle cx="540" cy="150" r="45" fill="#F0F0F0"/>
+      <circle cx="585" cy="155" r="40" fill="#F0F0F0"/>
+      <ellipse cx="515" cy="165" rx="80" ry="22" fill="#F0F0F0"/>
+      <animateTransform attributeName="transform" type="translate" values="-400,0;1600,0" dur="6s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Wind-stretched cloud 3 -->
+    <g opacity="0.9">
+      <circle cx="750" cy="85" r="40" fill="#FFFFFF"/>
+      <circle cx="785" cy="80" r="50" fill="#FFFFFF"/>
+      <circle cx="820" cy="85" r="35" fill="#FFFFFF"/>
+      <circle cx="850" cy="90" r="30" fill="#FFFFFF"/>
+      <ellipse cx="800" cy="100" rx="70" ry="20" fill="#FFFFFF"/>
+      <animateTransform attributeName="transform" type="translate" values="-300,0;1500,0" dur="7s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- High altitude fuller cloud -->
+    <g opacity="0.6">
+      <circle cx="950" cy="60" r="35" fill="#F8F8F8"/>
+      <circle cx="985" cy="55" r="45" fill="#F8F8F8"/>
+      <circle cx="1020" cy="60" r="30" fill="#F8F8F8"/>
+      <ellipse cx="985" cy="70" rx="60" ry="18" fill="#F8F8F8"/>
+      <animateTransform attributeName="transform" type="translate" values="-450,0;1650,0" dur="5s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  
+  <!-- Wind lines/streaks - perfectly straight -->
+  <g stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.4">
+    <!-- Horizontal wind streaks -->
+    <line x1="0" y1="200" x2="150" y2="200">
+      <animateTransform attributeName="transform" type="translate" values="-200,0;1400,0" dur="3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="250" x2="120" y2="250">
+      <animateTransform attributeName="transform" type="translate" values="-150,0;1350,0" dur="2.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="300" x2="180" y2="300">
+      <animateTransform attributeName="transform" type="translate" values="-250,0;1450,0" dur="3.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="350" x2="100" y2="350">
+      <animateTransform attributeName="transform" type="translate" values="-120,0;1320,0" dur="2.8s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="400" x2="160" y2="400">
+      <animateTransform attributeName="transform" type="translate" values="-200,0;1400,0" dur="3.2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="450" x2="140" y2="450">
+      <animateTransform attributeName="transform" type="translate" values="-180,0;1380,0" dur="2.7s" repeatCount="indefinite"/>
+    </line>
+    
+    <!-- Slightly diagonal wind streaks -->
+    <line x1="0" y1="180" x2="100" y2="175">
+      <animateTransform attributeName="transform" type="translate" values="-150,0;1350,0" dur="4s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="280" x2="80" y2="276">
+      <animateTransform attributeName="transform" type="translate" values="-100,0;1300,0" dur="3.8s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="380" x2="120" y2="375">
+      <animateTransform attributeName="transform" type="translate" values="-160,0;1360,0" dur="4.2s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- Swaying vegetation/grass effect at bottom -->
+  <g stroke="#228B22" stroke-width="3" stroke-linecap="round" opacity="0.6">
+    <!-- Grass blades swaying in wind -->
+    <line x1="100" y1="750" x2="105" y2="720">
+      <animateTransform attributeName="transform" type="rotate" values="0 100 750;15 100 750;-10 100 750;8 100 750;-5 100 750;0 100 750" dur="1.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="150" y1="750" x2="148" y2="710">
+      <animateTransform attributeName="transform" type="rotate" values="0 150 750;-12 150 750;18 150 750;-8 150 750;10 150 750;0 150 750" dur="1.8s" repeatCount="indefinite"/>
+    </line>
+    <line x1="200" y1="750" x2="208" y2="715">
+      <animateTransform attributeName="transform" type="rotate" values="0 200 750;20 200 750;-15 200 750;12 200 750;-8 200 750;0 200 750" dur="1.3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="300" y1="750" x2="295" y2="720">
+      <animateTransform attributeName="transform" type="rotate" values="0 300 750;-18 300 750;22 300 750;-10 300 750;15 300 750;0 300 750" dur="1.6s" repeatCount="indefinite"/>
+    </line>
+    <line x1="400" y1="750" x2="410" y2="710">
+      <animateTransform attributeName="transform" type="rotate" values="0 400 750;25 400 750;-20 400 750;15 400 750;-12 400 750;0 400 750" dur="1.4s" repeatCount="indefinite"/>
+    </line>
+    <line x1="500" y1="750" x2="492" y2="725">
+      <animateTransform attributeName="transform" type="rotate" values="0 500 750;-15 500 750;28 500 750;-18 500 750;10 500 750;0 500 750" dur="1.7s" repeatCount="indefinite"/>
+    </line>
+    <line x1="600" y1="750" x2="615" y2="715">
+      <animateTransform attributeName="transform" type="rotate" values="0 600 750;30 600 750;-25 600 750;20 600 750;-15 600 750;0 600 750" dur="1.2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="750" x2="690" y2="720">
+      <animateTransform attributeName="transform" type="rotate" values="0 700 750;-20 700 750;35 700 750;-25 700 750;18 700 750;0 700 750" dur="1.9s" repeatCount="indefinite"/>
+    </line>
+    <line x1="800" y1="750" x2="820" y2="710">
+      <animateTransform attributeName="transform" type="rotate" values="0 800 750;40 800 750;-30 800 750;25 800 750;-20 800 750;0 800 750" dur="1.1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="900" y1="750" x2="885" y2="725">
+      <animateTransform attributeName="transform" type="rotate" values="0 900 750;-25 900 750;45 900 750;-35 900 750;22 900 750;0 900 750" dur="1.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="1000" y1="750" x2="1025" y2="715">
+      <animateTransform attributeName="transform" type="rotate" values="0 1000 750;50 1000 750;-40 1000 750;30 1000 750;-25 1000 750;0 1000 750" dur="1.3s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- Dust/particle effects -->
+  <g fill="#DEB887" opacity="0.3">
+    <!-- Small particles blown by wind -->
+    <circle r="2">
+      <animateMotion dur="4s" repeatCount="indefinite">
+        <mpath href="#windPath1"/>
+      </animateMotion>
+    </circle>
+    <circle r="1.5">
+      <animateMotion dur="3.5s" repeatCount="indefinite">
+        <mpath href="#windPath2"/>
+      </animateMotion>
+    </circle>
+    <circle r="1">
+      <animateMotion dur="4.2s" repeatCount="indefinite">
+        <mpath href="#windPath3"/>
+      </animateMotion>
+    </circle>
+  </g>
+  
+  <!-- Hidden paths for particle motion -->
+  <defs>
+    <path id="windPath1" d="M-50,400 Q200,380 450,420 T950,400 L1300,390"/>
+    <path id="windPath2" d="M-30,300 Q250,290 500,310 T1000,300 L1250,295"/>
+    <path id="windPath3" d="M-70,500 Q150,480 400,500 T800,490 L1200,485"/>
+  </defs>
+</svg>

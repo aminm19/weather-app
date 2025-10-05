@@ -1,0 +1,202 @@
+<svg width="100%" height="100%" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Night windy sky gradient -->
+  <defs>
+    <radialGradient id="nightWindyGradient" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" style="stop-color:#2F1B69;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#1a0033;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+    </radialGradient>
+    
+    <filter id="nightWindGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="nightWindCloudShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="4" dy="3" stdDeviation="5" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="url(#nightWindyGradient)"/>
+  
+  <!-- Moon flickering behind fast clouds -->
+  <circle cx="900" cy="100" r="35" fill="#F5F5DC" filter="url(#nightWindGlow)" opacity="0.3">
+    <animate attributeName="opacity" values="0.1;0.6;0.2;0.8;0.1;0.5;0.3;0.9;0.2" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Moon craters -->
+  <g opacity="0.2">
+    <circle cx="892" cy="92" r="6" fill="#E6E6FA">
+      <animate attributeName="opacity" values="0.1;0.4;0.1;0.5;0.1;0.3;0.2;0.6;0.1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="905" cy="105" r="4" fill="#E6E6FA">
+      <animate attributeName="opacity" values="0.1;0.4;0.1;0.5;0.1;0.3;0.2;0.6;0.1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Fast-moving fuller dark clouds -->
+  <g filter="url(#nightWindCloudShadow)">
+    <!-- Wind-stretched dark cloud 1 -->
+    <g opacity="0.8">
+      <circle cx="150" cy="85" r="50" fill="#2C2C54"/>
+      <circle cx="200" cy="80" r="60" fill="#2C2C54"/>
+      <circle cx="250" cy="85" r="45" fill="#2C2C54"/>
+      <circle cx="300" cy="90" r="40" fill="#2C2C54"/>
+      <ellipse cx="225" cy="100" rx="85" ry="28" fill="#2C2C54"/>
+      <animateTransform attributeName="transform" type="translate" values="-450,0;1650,0" dur="6s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Wind-stretched dark cloud 2 covering moon area -->
+    <g opacity="0.9">
+      <circle cx="750" cy="105" r="55" fill="#1a1a2e"/>
+      <circle cx="800" cy="100" r="65" fill="#1a1a2e"/>
+      <circle cx="850" cy="105" r="50" fill="#1a1a2e"/>
+      <circle cx="900" cy="110" r="45" fill="#1a1a2e"/>
+      <ellipse cx="825" cy="120" rx="90" ry="30" fill="#1a1a2e"/>
+      <animateTransform attributeName="transform" type="translate" values="-400,0;1600,0" dur="5s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- High altitude fuller dark cloud -->
+    <g opacity="0.6">
+      <circle cx="450" cy="55" r="40" fill="#40407a"/>
+      <circle cx="500" cy="50" r="50" fill="#40407a"/>
+      <circle cx="550" cy="55" r="35" fill="#40407a"/>
+      <ellipse cx="500" cy="65" rx="70" ry="20" fill="#40407a"/>
+      <animateTransform attributeName="transform" type="translate" values="-500,0;1700,0" dur="4s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Lower fuller cloud -->
+    <g opacity="0.7">
+      <circle cx="80" cy="145" r="35" fill="#2C2C54"/>
+      <circle cx="120" cy="140" r="45" fill="#2C2C54"/>
+      <circle cx="160" cy="145" r="30" fill="#2C2C54"/>
+      <ellipse cx="120" cy="155" rx="55" ry="18" fill="#2C2C54"/>
+      <animateTransform attributeName="transform" type="translate" values="-350,0;1550,0" dur="7s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  
+  <!-- Wind lines/streaks with purple tint - perfectly straight -->
+  <g stroke="#9370DB" stroke-width="2" stroke-linecap="round" opacity="0.3">
+    <!-- Horizontal wind streaks -->
+    <line x1="0" y1="200" x2="180" y2="200">
+      <animateTransform attributeName="transform" type="translate" values="-250,0;1450,0" dur="2.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="250" x2="150" y2="250">
+      <animateTransform attributeName="transform" type="translate" values="-200,0;1400,0" dur="2.8s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="300" x2="220" y2="300">
+      <animateTransform attributeName="transform" type="translate" values="-300,0;1500,0" dur="2.2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="350" x2="120" y2="350">
+      <animateTransform attributeName="transform" type="translate" values="-150,0;1350,0" dur="3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="400" x2="200" y2="400">
+      <animateTransform attributeName="transform" type="translate" values="-280,0;1480,0" dur="2.4s" repeatCount="indefinite"/>
+    </line>
+    
+    <!-- Slightly diagonal wind streaks -->
+    <line x1="0" y1="180" x2="130" y2="175">
+      <animateTransform attributeName="transform" type="translate" values="-180,0;1380,0" dur="3.2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="280" x2="100" y2="276">
+      <animateTransform attributeName="transform" type="translate" values="-120,0;1320,0" dur="2.9s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="380" x2="160" y2="375">
+      <animateTransform attributeName="transform" type="translate" values="-220,0;1420,0" dur="2.6s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- Fast-moving stars being blown -->
+  <g fill="#FFFFFF" filter="url(#nightWindGlow)">
+    <!-- Stars streaking across sky -->
+    <circle r="1.5" opacity="0.8">
+      <animateMotion dur="3s" repeatCount="indefinite">
+        <mpath href="#starPath1"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.8;0.8;0" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="1" opacity="0.6">
+      <animateMotion dur="4s" repeatCount="indefinite">
+        <mpath href="#starPath2"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.6;0.6;0" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="1.2" opacity="0.7">
+      <animateMotion dur="2.5s" repeatCount="indefinite">
+        <mpath href="#starPath3"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.7;0.7;0" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Swaying vegetation silhouettes -->
+  <g stroke="#1a1a2e" stroke-width="4" stroke-linecap="round" opacity="0.8">
+    <!-- Dark vegetation silhouettes swaying violently -->
+    <line x1="80" y1="750" x2="90" y2="700">
+      <animateTransform attributeName="transform" type="rotate" values="0 80 750;25 80 750;-35 80 750;20 80 750;-25 80 750;0 80 750" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="140" y1="750" x2="130" y2="690">
+      <animateTransform attributeName="transform" type="rotate" values="0 140 750;-30 140 750;45 140 750;-20 140 750;35 140 750;0 140 750" dur="1.2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="220" y1="750" x2="240" y2="695">
+      <animateTransform attributeName="transform" type="rotate" values="0 220 750;40 220 750;-50 220 750;30 220 750;-40 220 750;0 220 750" dur="0.8s" repeatCount="indefinite"/>
+    </line>
+    <line x1="320" y1="750" x2="300" y2="705">
+      <animateTransform attributeName="transform" type="rotate" values="0 320 750;-45 320 750;55 320 750;-35 320 750;45 320 750;0 320 750" dur="1.1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="420" y1="750" x2="450" y2="690">
+      <animateTransform attributeName="transform" type="rotate" values="0 420 750;50 420 750;-60 420 750;40 420 750;-50 420 750;0 420 750" dur="0.9s" repeatCount="indefinite"/>
+    </line>
+    <line x1="520" y1="750" x2="490" y2="700">
+      <animateTransform attributeName="transform" type="rotate" values="0 520 750;-55 520 750;65 520 750;-45 520 750;55 520 750;0 520 750" dur="1.3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="620" y1="750" x2="660" y2="695">
+      <animateTransform attributeName="transform" type="rotate" values="0 620 750;60 620 750;-70 620 750;50 620 750;-60 620 750;0 620 750" dur="0.7s" repeatCount="indefinite"/>
+    </line>
+    <line x1="720" y1="750" x2="680" y2="705">
+      <animateTransform attributeName="transform" type="rotate" values="0 720 750;-65 720 750;75 720 750;-55 720 750;65 720 750;0 720 750" dur="1.4s" repeatCount="indefinite"/>
+    </line>
+    <line x1="820" y1="750" x2="870" y2="690">
+      <animateTransform attributeName="transform" type="rotate" values="0 820 750;70 820 750;-80 820 750;60 820 750;-70 820 750;0 820 750" dur="0.6s" repeatCount="indefinite"/>
+    </line>
+    <line x1="920" y1="750" x2="870" y2="700">
+      <animateTransform attributeName="transform" type="rotate" values="0 920 750;-75 920 750;85 920 750;-65 920 750;75 920 750;0 920 750" dur="1s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- Dust particles with purple glow -->
+  <g fill="#DDA0DD" opacity="0.4">
+    <!-- Glowing particles blown by night wind -->
+    <circle r="1.5" filter="url(#nightWindGlow)">
+      <animateMotion dur="3.5s" repeatCount="indefinite">
+        <mpath href="#nightWindPath1"/>
+      </animateMotion>
+    </circle>
+    <circle r="1" filter="url(#nightWindGlow)">
+      <animateMotion dur="4.2s" repeatCount="indefinite">
+        <mpath href="#nightWindPath2"/>
+      </animateMotion>
+    </circle>
+    <circle r="0.8" filter="url(#nightWindGlow)">
+      <animateMotion dur="2.8s" repeatCount="indefinite">
+        <mpath href="#nightWindPath3"/>
+      </animateMotion>
+    </circle>
+  </g>
+  
+  <!-- Hidden paths for animations -->
+  <defs>
+    <!-- Star paths -->
+    <path id="starPath1" d="M-100,120 Q200,100 500,130 T1100,120 L1400,115"/>
+    <path id="starPath2" d="M-80,180 Q300,160 600,190 T1200,180 L1350,175"/>
+    <path id="starPath3" d="M-120,80 Q150,60 400,90 T900,80 L1300,75"/>
+    
+    <!-- Night wind particle paths -->
+    <path id="nightWindPath1" d="M-60,450 Q250,430 500,460 T1000,450 L1350,445"/>
+    <path id="nightWindPath2" d="M-40,350 Q300,340 550,360 T1050,350 L1280,345"/>
+    <path id="nightWindPath3" d="M-80,550 Q200,530 450,550 T850,540 L1250,535"/>
+  </defs>
+</svg>

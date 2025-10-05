@@ -1,0 +1,136 @@
+<svg width="100%" height="100%" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Day foggy sky gradient -->
+  <defs>
+    <linearGradient id="dayFoggyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#B0C4DE;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#D3D3D3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E6E6FA;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="fogBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="heavyFogBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="15" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="url(#dayFoggyGradient)"/>
+  
+  <!-- Very dim sun barely visible through fog -->
+  <circle cx="200" cy="120" r="60" fill="#FFFAF0" opacity="0.2" filter="url(#heavyFogBlur)">
+    <animate attributeName="opacity" values="0.1;0.3;0.1;0.25;0.15" dur="8s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Multiple layers of fog at different heights and densities -->
+  <g filter="url(#fogBlur)">
+    <!-- Ground level heavy fog -->
+    <g opacity="0.9">
+      <ellipse cx="0" cy="600" rx="300" ry="120" fill="#F5F5F5"/>
+      <ellipse cx="200" cy="620" rx="250" ry="100" fill="#F0F0F0"/>
+      <ellipse cx="400" cy="610" rx="280" ry="110" fill="#F5F5F5"/>
+      <ellipse cx="600" cy="630" rx="320" ry="130" fill="#F0F0F0"/>
+      <ellipse cx="800" cy="615" rx="290" ry="115" fill="#F5F5F5"/>
+      <ellipse cx="1000" cy="625" rx="310" ry="125" fill="#F0F0F0"/>
+      <ellipse cx="1200" cy="605" rx="280" ry="105" fill="#F5F5F5"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0;50,0;0,0" dur="25s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Mid-level fog -->
+    <g opacity="0.7">
+      <ellipse cx="100" cy="450" rx="350" ry="80" fill="#F8F8FF"/>
+      <ellipse cx="350" cy="470" rx="300" ry="70" fill="#F5F5F5"/>
+      <ellipse cx="600" cy="460" rx="320" ry="75" fill="#F8F8FF"/>
+      <ellipse cx="850" cy="480" rx="280" ry="65" fill="#F5F5F5"/>
+      <ellipse cx="1100" cy="455" rx="300" ry="70" fill="#F8F8FF"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0;-30,0;0,0" dur="30s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Upper fog layer -->
+    <g opacity="0.5">
+      <ellipse cx="0" cy="300" rx="400" ry="60" fill="#FFFAF0"/>
+      <ellipse cx="300" cy="320" rx="350" ry="50" fill="#F8F8FF"/>
+      <ellipse cx="600" cy="310" rx="380" ry="55" fill="#FFFAF0"/>
+      <ellipse cx="900" cy="330" rx="320" ry="45" fill="#F8F8FF"/>
+      <ellipse cx="1200" cy="305" rx="350" ry="50" fill="#FFFAF0"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0;40,0;0,0" dur="35s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- High altitude mist -->
+    <g opacity="0.3">
+      <ellipse cx="150" cy="150" rx="450" ry="40" fill="#F0F8FF"/>
+      <ellipse cx="500" cy="170" rx="400" ry="35" fill="#FFFAF0"/>
+      <ellipse cx="850" cy="160" rx="420" ry="38" fill="#F0F8FF"/>
+      <ellipse cx="1150" cy="180" rx="380" ry="30" fill="#FFFAF0"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0;-20,0;0,0" dur="40s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  
+  <!-- Denser fog patches moving slowly -->
+  <g filter="url(#heavyFogBlur)">
+    <!-- Dense fog patch 1 -->
+    <g opacity="0.8">
+      <circle cx="300" cy="400" r="120" fill="#F5F5F5"/>
+      <circle cx="350" cy="420" r="100" fill="#F0F0F0"/>
+      <circle cx="280" cy="450" r="90" fill="#F5F5F5"/>
+      <animateTransform attributeName="transform" type="translate" values="-200,0;1400,0" dur="60s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Dense fog patch 2 -->
+    <g opacity="0.6">
+      <circle cx="700" cy="350" r="140" fill="#F8F8FF"/>
+      <circle cx="760" cy="380" r="110" fill="#F5F5F5"/>
+      <circle cx="720" cy="320" r="95" fill="#F8F8FF"/>
+      <animateTransform attributeName="transform" type="translate" values="-300,0;1500,0" dur="80s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Dense fog patch 3 -->
+    <g opacity="0.7">
+      <circle cx="1000" cy="500" r="130" fill="#F0F0F0"/>
+      <circle cx="1050" cy="480" r="105" fill="#F5F5F5"/>
+      <circle cx="980" cy="520" r="85" fill="#F0F0F0"/>
+      <animateTransform attributeName="transform" type="translate" values="-350,0;1550,0" dur="70s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  
+  <!-- Subtle particles in fog -->
+  <g fill="#E6E6FA" opacity="0.4">
+    <circle r="1" cx="150" cy="400">
+      <animate attributeName="cy" values="400;350;400" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.2;0.6;0.2" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="0.8" cx="400" cy="500">
+      <animate attributeName="cy" values="500;460;500" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.1;0.5;0.1" dur="8s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="1.2" cx="650" cy="350">
+      <animate attributeName="cy" values="350;310;350" dur="7s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="7s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="0.9" cx="900" cy="450">
+      <animate attributeName="cy" values="450;420;450" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.2;0.6;0.2" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="1.1" cx="1100" cy="380">
+      <animate attributeName="cy" values="380;340;380" dur="9s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.1;0.4;0.1" dur="9s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Barely visible landscape silhouettes -->
+  <g fill="#D3D3D3" opacity="0.2">
+    <rect x="0" y="700" width="1200" height="100"/>
+    <ellipse cx="300" cy="720" rx="150" ry="30"/>
+    <ellipse cx="700" cy="710" rx="200" ry="25"/>
+    <ellipse cx="1000" cy="725" rx="180" ry="35"/>
+  </g>
+</svg>

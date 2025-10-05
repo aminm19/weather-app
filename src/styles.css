@@ -209,6 +209,70 @@ gmp-place-autocomplete::part(option):hover {
     height: 85%;
 }
 
+.weather.day-clear {
+    background-image: url('./assets/backgrounds/day-clear.svg');
+    background-size: cover;
+}
+
+.weather.day-cloudy {
+    background-image: url('./assets/backgrounds/day-cloudy.svg');
+    background-size: cover;
+}
+
+.weather.day-rainy {
+    background-image: url('./assets/backgrounds/day-rainy.svg');
+    background-size: cover;
+}
+
+.weather.night-clear {
+    background-image: url('./assets/backgrounds/night-clear.svg');
+    background-size: cover;
+}
+.weather.night-cloudy {
+    background-image: url('./assets/backgrounds/night-cloudy.svg');
+    background-size: cover;
+}
+.weather.night-rainy {
+    background-image: url('./assets/backgrounds/night-rainy.svg');
+    background-size: cover;
+}
+.weather.day-snowy {
+    background-image: url('./assets/backgrounds/day-snowy.svg');
+    background-size: cover;
+}
+.weather.night-snowy {
+    background-image: url('./assets/backgrounds/night-snowy.svg');
+    background-size: cover;
+}
+.weather.day-thunderstorm {
+    background-image: url('./assets/backgrounds/day-thunderstorm.svg');
+    background-size: cover;
+}
+.weather.night-thunderstorm {
+    background-image: url('./assets/backgrounds/night-thunderstorm.svg');
+    background-size: cover;
+}
+.weather.day-foggy {
+    background-image: url('./assets/backgrounds/day-foggy.svg');
+    background-size: cover;
+}
+.weather.night-foggy {
+    background-image: url('./assets/backgrounds/night-foggy.svg');
+    background-size: cover;
+}
+.weather.day-windy {
+    background-image: url('./assets/backgrounds/day-windy.svg');
+    background-size: cover;
+}
+.weather.night-windy {
+    background-image: url('./assets/backgrounds/night-windy.svg');
+    background-size: cover;
+}
+.weather-icon{
+    width: 100px;
+    height: 100px;
+}
+
 .top-row{
     display: flex;
     justify-content: space-between;
@@ -228,6 +292,7 @@ gmp-place-autocomplete::part(option):hover {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    font-weight: 700;
 }
 
 .weekly-forecast{
@@ -241,11 +306,23 @@ gmp-place-autocomplete::part(option):hover {
     gap: 5px;
 }
 
-.day-name, .day-temp{
+.day-name, .day-temp, .day-low-temp {
     font-size: 12px;
     font-family: Nunito;
 }
 
+.day-temp{
+    color: #ffcc00;
+}
+.day-low-temp{
+    color: #00ccff;
+}
+
+.week-temps{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
 .day-icon{
     width: 50px;
     height: 50px;

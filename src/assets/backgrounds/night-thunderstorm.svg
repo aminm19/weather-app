@@ -1,0 +1,215 @@
+<svg width="100%" height="100%" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Night thunderstorm sky gradient -->
+  <defs>
+    <radialGradient id="nightThunderstormGradient" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" style="stop-color:#0a0a1a;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#050510;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+    </radialGradient>
+    
+    <filter id="nightThunderCloudShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="6" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+    
+    <filter id="nightLightningGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="purpleLightningGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="url(#nightThunderstormGradient)"/>
+  
+  <!-- Lightning flashes (background illumination) with purple tint -->
+  <rect width="100%" height="100%" fill="#4B0082" opacity="0">
+    <animate attributeName="opacity" values="0;0;0;0.2;0;0;0;0;0;0.15;0;0;0;0;0;0;0.25;0;0;0" dur="12s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Very dark storm clouds -->
+  <g filter="url(#nightThunderCloudShadow)">
+    <!-- Massive night storm cloud 1 -->
+    <g opacity="0.95">
+      <circle cx="180" cy="70" r="70" fill="#0d0d0d"/>
+      <circle cx="235" cy="60" r="85" fill="#0d0d0d"/>
+      <circle cx="290" cy="70" r="65" fill="#0d0d0d"/>
+      <circle cx="345" cy="80" r="60" fill="#0d0d0d"/>
+      <circle cx="250" cy="105" r="55" fill="#0d0d0d"/>
+      <circle cx="205" cy="130" r="50" fill="#0d0d0d"/>
+      <circle cx="275" cy="145" r="45" fill="#0d0d0d"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0;15,0;0,0" dur="16s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Massive night storm cloud 2 -->
+    <g opacity="0.9">
+      <circle cx="550" cy="60" r="75" fill="#050505"/>
+      <circle cx="610" cy="55" r="90" fill="#050505"/>
+      <circle cx="670" cy="60" r="70" fill="#050505"/>
+      <circle cx="730" cy="70" r="65" fill="#050505"/>
+      <circle cx="625" cy="95" r="60" fill="#050505"/>
+      <circle cx="580" cy="120" r="55" fill="#050505"/>
+      <circle cx="650" cy="140" r="50" fill="#050505"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0;-12,0;0,0" dur="18s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Towering night storm cloud 3 -->
+    <g opacity="0.85">
+      <circle cx="900" cy="50" r="80" fill="#0d0d0d"/>
+      <circle cx="965" cy="45" r="95" fill="#0d0d0d"/>
+      <circle cx="1030" cy="50" r="75" fill="#0d0d0d"/>
+      <circle cx="1085" cy="60" r="70" fill="#0d0d0d"/>
+      <circle cx="980" cy="85" r="65" fill="#0d0d0d"/>
+      <circle cx="935" cy="115" r="60" fill="#0d0d0d"/>
+      <circle cx="1005" cy="135" r="55" fill="#0d0d0d"/>
+      <circle cx="950" cy="155" r="50" fill="#0d0d0d"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0;18,0;0,0" dur="20s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  
+  <!-- Lightning bolts with purple/white coloring -->
+  <g stroke-width="5" fill="none" filter="url(#nightLightningGlow)">
+    <!-- Purple-white lightning bolt 1 -->
+    <path d="M250 140 L240 190 L255 240 L245 290 L260 340 L250 390" stroke="#E6E6FA" opacity="0">
+      <animate attributeName="opacity" values="0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0" dur="12s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Purple lightning bolt 2 -->
+    <path d="M625 135 L615 185 L630 235 L620 285 L635 335 L625 385" stroke="#9370DB" opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0" dur="12s" repeatCount="indefinite" begin="4s"/>
+    </path>
+    
+    <!-- Bright white lightning bolt 3 -->
+    <path d="M980 125 L970 175 L985 225 L975 275 L990 325 L980 375" stroke="#FFFFFF" opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0" dur="12s" repeatCount="indefinite" begin="8s"/>
+    </path>
+    
+    <!-- Branching lightning bolt 4 -->
+    <g stroke="#DDA0DD" opacity="0">
+      <path d="M150 120 L140 170 L155 220 L145 270"/>
+      <path d="M155 220 L170 240 L160 280"/>
+      <path d="M145 270 L130 290 L140 320"/>
+      <animate attributeName="opacity" values="0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0" dur="12s" repeatCount="indefinite" begin="2s"/>
+    </g>
+    
+    <!-- Distant lightning bolt 5 -->
+    <path d="M800 100 L790 150 L805 200 L795 250 L810 300" stroke="#9932CC" opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0" dur="12s" repeatCount="indefinite" begin="6s"/>
+    </path>
+  </g>
+  
+  <!-- Heavy rain with slight purple tint -->
+  <g stroke="#6A5ACD" stroke-width="3" stroke-linecap="round" opacity="0.9">
+    <!-- Very dense diagonal rain -->
+    <line x1="60" y1="150" x2="50" y2="185">
+      <animate attributeName="y1" values="150;800" dur="0.4s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="185;835" dur="0.4s" repeatCount="indefinite"/>
+    </line>
+    <line x1="100" y1="170" x2="90" y2="205">
+      <animate attributeName="y1" values="170;800" dur="0.5s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="205;835" dur="0.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="140" y1="130" x2="130" y2="165">
+      <animate attributeName="y1" values="130;800" dur="0.3s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="165;835" dur="0.3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="180" y1="160" x2="170" y2="195">
+      <animate attributeName="y1" values="160;800" dur="0.6s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="195;835" dur="0.6s" repeatCount="indefinite"/>
+    </line>
+    <line x1="220" y1="140" x2="210" y2="175">
+      <animate attributeName="y1" values="140;800" dur="0.4s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="175;835" dur="0.4s" repeatCount="indefinite"/>
+    </line>
+    <line x1="260" y1="170" x2="250" y2="205">
+      <animate attributeName="y1" values="170;800" dur="0.5s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="205;835" dur="0.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="300" y1="150" x2="290" y2="185">
+      <animate attributeName="y1" values="150;800" dur="0.3s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="185;835" dur="0.3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="340" y1="130" x2="330" y2="165">
+      <animate attributeName="y1" values="130;800" dur="0.6s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="165;835" dur="0.6s" repeatCount="indefinite"/>
+    </line>
+    <line x1="380" y1="160" x2="370" y2="195">
+      <animate attributeName="y1" values="160;800" dur="0.4s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="195;835" dur="0.4s" repeatCount="indefinite"/>
+    </line>
+    <line x1="420" y1="140" x2="410" y2="175">
+      <animate attributeName="y1" values="140;800" dur="0.5s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="175;835" dur="0.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="460" y1="170" x2="450" y2="205">
+      <animate attributeName="y1" values="170;800" dur="0.3s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="205;835" dur="0.3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="500" y1="150" x2="490" y2="185">
+      <animate attributeName="y1" values="150;800" dur="0.6s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="185;835" dur="0.6s" repeatCount="indefinite"/>
+    </line>
+    <line x1="540" y1="130" x2="530" y2="165">
+      <animate attributeName="y1" values="130;800" dur="0.4s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="165;835" dur="0.4s" repeatCount="indefinite"/>
+    </line>
+    <line x1="580" y1="160" x2="570" y2="195">
+      <animate attributeName="y1" values="160;800" dur="0.5s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="195;835" dur="0.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="620" y1="140" x2="610" y2="175">
+      <animate attributeName="y1" values="140;800" dur="0.3s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="175;835" dur="0.3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="660" y1="170" x2="650" y2="205">
+      <animate attributeName="y1" values="170;800" dur="0.6s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="205;835" dur="0.6s" repeatCount="indefinite"/>
+    </line>
+    <line x1="700" y1="150" x2="690" y2="185">
+      <animate attributeName="y1" values="150;800" dur="0.4s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="185;835" dur="0.4s" repeatCount="indefinite"/>
+    </line>
+    <line x1="740" y1="130" x2="730" y2="165">
+      <animate attributeName="y1" values="130;800" dur="0.5s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="165;835" dur="0.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="780" y1="160" x2="770" y2="195">
+      <animate attributeName="y1" values="160;800" dur="0.3s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="195;835" dur="0.3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="820" y1="140" x2="810" y2="175">
+      <animate attributeName="y1" values="140;800" dur="0.6s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="175;835" dur="0.6s" repeatCount="indefinite"/>
+    </line>
+    <line x1="860" y1="170" x2="850" y2="205">
+      <animate attributeName="y1" values="170;800" dur="0.4s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="205;835" dur="0.4s" repeatCount="indefinite"/>
+    </line>
+    <line x1="900" y1="150" x2="890" y2="185">
+      <animate attributeName="y1" values="150;800" dur="0.5s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="185;835" dur="0.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="940" y1="130" x2="930" y2="165">
+      <animate attributeName="y1" values="130;800" dur="0.3s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="165;835" dur="0.3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="980" y1="160" x2="970" y2="195">
+      <animate attributeName="y1" values="160;800" dur="0.6s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="195;835" dur="0.6s" repeatCount="indefinite"/>
+    </line>
+    <line x1="1020" y1="140" x2="1010" y2="175">
+      <animate attributeName="y1" values="140;800" dur="0.4s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="175;835" dur="0.4s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- No visible stars due to heavy cloud cover and storm conditions -->
+</svg>
