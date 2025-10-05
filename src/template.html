@@ -7,9 +7,64 @@
     <title>The Four Winds</title>
 </head>
 <body>
+    <div class="background-container"></div>
     <div id="app">
         <div class="weather-container">
-            <h2>Weather Information</h2>
+            <div class="left">
+                <div class="new-search">
+                    <button id="new-search-button">New Search</button>
+                </div>
+                <div class="weather">
+                    <div class="top-row">
+                        <div class="left-side">
+                            <h2 id="location">${city}</h2>
+                            <h5 id="date">October 10, 2023</h5>
+                        </div>
+                        <h3 id="time">12:00 PM</h3>
+                    </div>
+                    <h1 id="temperature">--°C</h1>
+                    <h3 id="description">Weather Description</h3>
+                    <img id="weather-icon" alt="Weather Icon" style="display: none;">
+                </div>
+            </div>
+            <div class="info">
+                <div class="details">
+                    <h3>Details</h3>
+                    <p id="humidity">Humidity: --%</p>
+                    <p id="wind-speed">Wind Speed: -- m/s</p>
+                    <p id="pressure">Pressure: -- hPa</p>
+                </div>
+            </div>
+            <div class="weekly">
+                <h3>Weekly Forecast</h3>
+                <div class="weekly-forecast">
+                    <div class="day-forecast">
+                        <p class="day-name">Mon</p>
+                        <img class="day-icon" src="https://www.weatherbit.io/static/img/icons/c02d.png" alt="Cloudy">
+                        <p class="day-temp">22°C</p>
+                    </div>
+                    <div class="day-forecast">
+                        <p class="day-name">Tue</p>
+                        <img class="day-icon" src="https://www.weatherbit.io/static/img/icons/c02d.png" alt="Cloudy">
+                        <p class="day-temp">23°C</p>
+                    </div>
+                    <div class="day-forecast">
+                        <p class="day-name">Wed</p>
+                        <img class="day-icon" src="https://www.weatherbit.io/static/img/icons/c02d.png" alt="Cloudy">
+                        <p class="day-temp">24°C</p>
+                    </div>
+                    <div class="day-forecast">
+                        <p class="day-name">Thu</p>
+                        <img class="day-icon" src="https://www.weatherbit.io/static/img/icons/c02d.png" alt="Cloudy">
+                        <p class="day-temp">25°C</p>
+                    </div>
+                    <div class="day-forecast">
+                        <p class="day-name">Fri</p>
+                        <img class="day-icon" src="https://www.weatherbit.io/static/img/icons/c02d.png" alt="Cloudy">
+                        <p class="day-temp">26°C</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

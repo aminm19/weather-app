@@ -1,10 +1,11 @@
 import { VC_API_KEY, GM_API_KEY } from './keys.js';
-import { searchWeather } from './weatherPage.js';
+import { loadWeatherPage } from './weatherPage.js';
 
 export function loadMainPage() {
     const app = document.getElementById('app');
 
     const mainPageHTML = `
+        <div class="background-container"></div>
         <div class="home-container">
             <h1 class="search-header">Please choose a location</h1>
             <div class="search-area">
@@ -23,17 +24,15 @@ export function loadMainPage() {
         const city = searchInput.value;
         if (city) {
             console.log(`Searching weather for ${city}`);
-            // Here you can add the logic to fetch and display weather data
         } else {
             console.log('Please enter a city name');
         }
     });
 
-    // Initialize Google Places
-    initializeAutocomplete();
+    // Note: initializeAutocomplete will be called from index.js after API loads
 }
 
-async function initializeAutocomplete() {
+export async function initializeAutocomplete() {
     try {
         // Import the PlaceAutocompleteElement from Google Maps Places library
         const { PlaceAutocompleteElement } = await google.maps.importLibrary("places");
@@ -70,13 +69,13 @@ async function initializeAutocomplete() {
                 console.log('Selected place:', place);
                 console.log('Place properties:', Object.keys(place));
                 
-                // Try different property names that might contain the city name
+                // Place object does not contain city name, just use prediciton text
                 const selectedCity = placePrediction.text?.text;
 
                 console.log(`Selected city: ${selectedCity}`);
                 
-                // You can trigger your weather search here
-                searchWeather(selectedCity);
+                // Load weather page and get weather info from Visual Crossing API
+                loadWeatherPage(selectedCity);
             } catch (error) {
                 console.error('Error getting place details:', error);
             }

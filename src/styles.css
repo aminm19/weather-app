@@ -7,19 +7,23 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    /* fallback color while loading */
+    background-color: #1a1a2e;
 }
 
-body::before {
-    content: '';
+/* Need this to apply brightness filter without affecting other elements */
+.background-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url(night2.jpg) no-repeat center center fixed;
+    background: url(night2.jpg) no-repeat center center;
     background-size: cover;
+    background-attachment: fixed;
     filter: brightness(0.5);
-    z-index: -1;
+    z-index: -999;
+    pointer-events: none;
 }
 
 #app{
@@ -123,7 +127,6 @@ gmp-place-autocomplete input[type="text"] {
     -webkit-text-fill-color: white !important;
 }
 
-/* Target the internal parts of the autocomplete element */
 gmp-place-autocomplete::part(text-input) {
     background-color: rgb(46, 24, 46) !important;
     color: white !important;
@@ -145,6 +148,7 @@ gmp-place-autocomplete::part(option):hover {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    gap: 10px;
     height: 60%;
     width: 70%;
     background-color: #16161f89;
@@ -154,28 +158,29 @@ gmp-place-autocomplete::part(option):hover {
 }
 
 .left{
-    grid-column: 1 / 2;  /* Takes up first column */
-    grid-row: 1 / 3;     /* Spans both rows (1 to 3 = rows 1 and 2) */
-    border: 1px solid blue;
+    grid-column: 1 / 2; 
+    grid-row: 1 / 3;    
+    border: 1px solid blue; 
 }
 
 .info{
-    grid-column: 2 / 3;  /* Takes up second column */
-    grid-row: 1 / 2;     /* Takes up first row */
+    grid-column: 2 / 3; 
+    grid-row: 1 / 2;     
     border: 1px solid green;
 }
 
 .weekly{
-    grid-column: 2 / 3;  /* Takes up second column */
-    grid-row: 2 / 3;     /* Takes up second row */
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
     border: 1px solid orange;
 }
 
 .new-search {
     display: flex;
     gap: 10px;
+    padding: 5px;
     font-size: 16px;
-    border-radius: 6px;
+    border-radius: 5px;
     background-color: #15202d;
     color: gray;
     cursor: pointer;
@@ -183,6 +188,7 @@ gmp-place-autocomplete::part(option):hover {
 
 #new-search-button {
     padding: 10px 15px;
+    background-color: #15202d;
     font-size: 16px;
     border-radius: 6px;
     color: gray;
@@ -191,4 +197,49 @@ gmp-place-autocomplete::part(option):hover {
 
 #new-search-button:hover {
     background-color: #333e4a;
+}
+
+.weather{
+    padding: 15px;
+}
+
+.top-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#location{
+    margin-bottom: 5px;
+}
+
+#date{
+    margin-top: 0;
+}
+
+.weekly{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.weekly-forecast{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    background-color: #1a1a2e;
+    padding: 10px;
+    border-radius: 6px;
+    gap: 5px;
+}
+
+.day-name, .day-temp{
+    font-size: 12px;
+}
+
+.day-icon{
+    width: 50px;
+    height: 50px;
 }

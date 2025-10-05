@@ -1,4 +1,4 @@
-import { loadMainPage } from './mainPage.js';
+import { loadMainPage, initializeAutocomplete } from './mainPage.js';
 import './styles.css'
 import { VC_API_KEY, GM_API_KEY } from './keys.js';
 
@@ -27,14 +27,21 @@ function loadPlacesAPI() {
     });
 }
 
-// Load API, then load main page
+// Load main page immediately, then load API in background
 
 async function initApp() {
-    await loadPlacesAPI();
     loadMainPage();
+    
+    // Load API in background
+    try {
+        await loadPlacesAPI();
+        console.log('Google Places API loaded successfully');
+        // Now that API is loaded, initialize autocomplete
+        await initializeAutocomplete();
+    } catch (error) {
+        console.error('Failed to load Places API:', error);
+        console.log('Autocomplete will not be available');
+    }
 }
 
-initApp().catch(error => {
-    console.error('Failed to load Places API:', error);
-    loadMainPage();
-});
+initApp();
