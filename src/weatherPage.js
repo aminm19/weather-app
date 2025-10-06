@@ -13,7 +13,7 @@ import nightIcon from './assets/night/icons8-moon-and-stars-90.png';
 
 export async function searchWeather(city) {
     console.log(`Searching weather for ${city}`);
-    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${VC_API_KEY}`;
+    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${VC_API_KEY}&iconSet=icons2`;
     // Fetch weather data from Visual Crossing API
     const data = await fetch(url);
     if (!data.ok) {

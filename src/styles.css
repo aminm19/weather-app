@@ -71,6 +71,7 @@ body{
 
 #search-button {
     padding: 10px 15px;
+    max-height: 40px;
     font-size: 16px;
     border: none;
     border-radius: 6px;
@@ -86,6 +87,7 @@ body{
 /* Google Places Autocomplete Element Styling */
 .places-autocomplete {
     width: 200px;
+    max-height: 40px;
     font-size: 16px;
     border: none;
     border-radius: 6px;
@@ -105,41 +107,61 @@ body{
 
 /* Style the internal input of the autocomplete element */
 gmp-place-autocomplete {
-    background-color: rgb(46, 24, 46) !important;
-    color: white !important;
-    border: none !important;
-    border-radius: 6px !important;
-    width: 200px !important;
-    font-size: 16px !important;
-    
+    background-color: rgb(46, 24, 46);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    width: 200px;
+    font-size: 16px;
+
     /* Force text color using CSS custom properties */
-    --gmp-primary-color: white !important;
-    --gmp-option-text-color: white !important;
-    --gmp-background-color: rgb(46, 24, 46) !important;
+    --gmp-primary-color: white;
+    --gmp-option-text-color: white;
+    --gmp-background-color: rgb(46, 24, 46);
 }
 
 /* Additional targeting for the input text */
 gmp-place-autocomplete input,
 gmp-place-autocomplete input[type="text"] {
-    color: white !important;
-    background-color: rgb(46, 24, 46) !important;
-    -webkit-text-fill-color: white !important;
+    color: white;
+    background-color: rgb(46, 24, 46);
+    -webkit-text-fill-color: white;
 }
 
 gmp-place-autocomplete::part(text-input) {
-    background-color: rgb(46, 24, 46) !important;
-    color: white !important;
-    border: none !important;
-    padding: 10px !important;
+    background-color: rgb(46, 24, 46);
+    color: white;
+    border: none;
+    padding: 10px;
 }
 
 gmp-place-autocomplete::part(option) {
-    background-color: rgb(46, 24, 46) !important;
-    color: white !important;
+    background-color: rgb(46, 24, 46);
+    color: white;
 }
 
 gmp-place-autocomplete::part(option):hover {
-    background-color: rgb(66, 44, 66) !important;
+    background-color: rgb(66, 44, 66);
+}
+
+.places-autocomplete-2 {
+    width: 100%;
+    max-height: 40px;
+    background: none;
+    font-size: 16px;
+    border: 1px solid gray;
+    border-radius: 6px;
+
+    /* Custom CSS properties for PlaceAutocompleteElement */
+    --gmp-option-background-color: rgb(46, 24, 46);
+    --gmp-option-text-color: white;
+    color: white;
+    
+    /* Additional properties for input text styling */
+    --gmp-primary-color: white;
+    --gmp-outline-color: rgb(46, 24, 46);
+    --gmp-background-color: rgb(46, 24, 46);
+    color-scheme: dark;
 }
 
 .weather-container {
@@ -148,7 +170,7 @@ gmp-place-autocomplete::part(option):hover {
     grid-template-rows: 1fr 1fr;
     gap: 10px;
     height: 60%;
-    width: 70%;
+    width: 75%;
     background-color: #16161f89;
     border-radius: 8px;
     text-align: center;
@@ -160,7 +182,9 @@ gmp-place-autocomplete::part(option):hover {
     grid-row: 1 / 3;
     background-color: #1a1a2e;
     border-radius: 8px;
-    padding: 15px;
+    padding: 5px 15px 15px 15px;
+    display: flex;
+    flex-direction: column;
 }
 
 .info{
@@ -179,10 +203,11 @@ gmp-place-autocomplete::part(option):hover {
 
 .new-search {
     display: flex;
+    padding: 10px 0 10px 0;
     gap: 10px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     /* padding: 5px; */
-    font-size: 16px;
+    font-size: 12px;
     border-radius: 5px;
     color: rgb(171, 171, 171);
     cursor: pointer;
@@ -192,10 +217,12 @@ gmp-place-autocomplete::part(option):hover {
     padding: 8px 10px;
     background-color: #15202d;
     background-color: #2c2c5198;
-    font-size: 16px;
+    max-height: 40px;
+    font-size: 14px;
     border-radius: 6px;
     color: rgb(171, 171, 171);
     cursor: pointer;
+    white-space: nowrap;
 }
 
 #new-search-button:hover {
@@ -207,6 +234,10 @@ gmp-place-autocomplete::part(option):hover {
     background-color: #7ea7cd;
     border-radius: 8px;
     height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    justify-content: space-between;
 }
 
 .weather.day-clear {
@@ -269,8 +300,8 @@ gmp-place-autocomplete::part(option):hover {
     background-size: cover;
 }
 .weather-icon{
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
 }
 
 .top-row{
@@ -287,6 +318,88 @@ gmp-place-autocomplete::part(option):hover {
     margin-top: 0;
 }
 
+.bottom-part{
+    display: flex;
+    margin-top: auto;
+    margin-bottom: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.temps-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0px;
+}
+
+#temperature{
+    margin: 0;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+#high-temp, #low-temp, .main-divider{
+    font-size: 18px;
+    margin: 0;
+}
+
+#high-temp{
+    color: #ffcc00;
+}
+#low-temp{
+    color: #00ccff;
+}
+
+#description{
+    margin: 0;
+    font-size: 18px;
+}
+
+.high-low{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 15px;
+    font-weight: 700;
+}
+
+.detail{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+
+.detail.not-last {
+    position: relative;
+    margin-bottom: 0;
+}
+
+.not-last:after{
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #333e4a;
+}
+
+.detail-item{
+    margin-right: auto;
+}
+
 .weekly{
     display: flex;
     flex-direction: column;
@@ -295,20 +408,31 @@ gmp-place-autocomplete::part(option):hover {
     font-weight: 700;
 }
 
+#weekly-forecast-title {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 0px;
+}
+
 .weekly-forecast{
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 90%;
     background-color: #1a1a2e;
-    padding: 10px;
+    padding: 0px 10px 10px 10px;
     border-radius: 6px;
     gap: 5px;
 }
 
-.day-name, .day-temp, .day-low-temp {
+.day-name, .day-temp, .day-low-temp, .divider {
     font-size: 12px;
     font-family: Nunito;
+}
+
+.day-name{
+    color: #ffffff;
+    font-size: 14px;
 }
 
 .day-temp{
@@ -324,6 +448,6 @@ gmp-place-autocomplete::part(option):hover {
     align-items: center;
 }
 .day-icon{
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
 }

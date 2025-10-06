@@ -16,6 +16,7 @@
             <div class="left">
                 <div class="new-search">
                     <button id="new-search-button">New Search</button>
+                    <input id="search-input-2" type="text" placeholder="Search City">
                 </div>
                 <div class="weather" id="weather">
                     <div class="top-row">
@@ -25,27 +26,51 @@
                         </div>
                         <h3 id="time">12:00 PM</h3>
                     </div>
-                    <h1 id="temperature">--°F</h1>
-                    <h3 id="description">Weather Description</h3>
-                    <img height="100" id="weather-icon" src="https://cdn-icons-png.flaticon.com/512/1555/1555512.png" alt="Weather Icon">
+                    <div class="bottom-part">
+                        <div class="temps-div">
+                            <h1 id="temperature">--°F</h1>
+                            <div class="high-low">
+                                <p class="high-temp" id="high-temp">--°F</p>
+                                <p class="main-divider">/</p>
+                                <p class="low-temp" id="low-temp">--°F</p>
+                            </div>
+                            <h3 id="description">Weather Description</h3>
+                        </div>
+                        <div class="icon-div">
+                            <img height="100" id="weather-icon" src="https://cdn-icons-png.flaticon.com/512/1555/1555512.png" alt="Weather Icon">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="info">
                 <div class="details">
-                    <h3>Details</h3>
-                    <p id="humidity">Humidity: --%</p>
-                    <p id="wind-speed">Wind Speed: -- m/s</p>
-                    <p id="pressure">Pressure: -- hPa</p>
+                    <h3>Today's Forecast</h3>
+                    <div class="detail not-last">
+                        <p class="detail-item" id="humidity">Humidity: </p><p id="humidity-value">--%</p>
+                    </div>
+                    <div class="detail not-last">
+                        <p class="detail-item" id="wind-speed">Wind Speed: </p><p id="wind-speed-value">--mph</p>
+                    </div>
+                    <div class="detail not-last">
+                        <p class="detail-item" id="pressure">Pressure: </p><p id="pressure-value">--hPa</p>
+                    </div>
+                    <div class="detail not-last">
+                        <p class="detail-item" id="probability">Rain Probability: </p><p id="probability-value">--%</p>
+                    </div>
+                    <div class="detail">
+                        <p class="detail-item" id="uv-index">UV Index: </p><p id="uv-index-value">--</p>
+                    </div>
                 </div>
             </div>
             <div class="weekly">
-                <h3>Weekly Forecast</h3>
+                <h3 id="weekly-forecast-title">Weekly Forecast</h3>
                 <div class="weekly-forecast">
                     <div class="day-forecast">
                         <p class="day-name">Mon</p>
                         <img class="day-icon" src="https://www.weatherbit.io/static/img/icons/c02d.png" alt="Cloudy">
                         <div class="week-temps">
                             <p class="day-temp">22°C</p>
+                            <p class="divider">/</p>
                             <p class="day-low-temp">22°C</p>
                         </div>
 
@@ -55,6 +80,7 @@
                         <img class="day-icon" src="https://www.weatherbit.io/static/img/icons/c02d.png" alt="Cloudy">
                         <div class="week-temps">
                             <p class="day-temp">23°C</p>
+                            <p class="divider">/</p>
                             <p class="day-low-temp">22°C</p>
                         </div>
                     </div>
@@ -63,6 +89,7 @@
                         <img class="day-icon" src="https://www.weatherbit.io/static/img/icons/c02d.png" alt="Cloudy">
                         <div class="week-temps">
                             <p class="day-temp">24°C</p>
+                            <p class="divider">/</p>
                             <p class="day-low-temp">22°C</p>
                         </div>
                     </div>
@@ -71,6 +98,7 @@
                         <img class="day-icon" src="https://www.weatherbit.io/static/img/icons/c02d.png" alt="Cloudy">
                         <div class="week-temps">
                             <p class="day-temp">25°C</p>
+                            <p class="divider">/</p>
                             <p class="day-low-temp">22°C</p>
                         </div>
                     </div>
@@ -79,6 +107,7 @@
                         <img class="day-icon" src="https://www.weatherbit.io/static/img/icons/c02d.png" alt="Cloudy">
                         <div class="week-temps">
                             <p class="day-temp">26°C</p>
+                            <p class="divider">/</p>
                             <p class="day-low-temp">22°C</p>
                         </div>
                     </div>
