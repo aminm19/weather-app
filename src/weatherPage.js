@@ -24,8 +24,25 @@ export async function searchWeather(city) {
 }
 
 export function loadWeatherPage(city) {
-    loadWeatherPageDOM(city);
-    searchWeather(city);
+    const app = document.getElementById('app');
+    
+    // Add exit class
+    app.classList.add('page-exit-active');
+    
+    // After 500ms, do exactly what you're already doing
+    setTimeout(() => {
+        loadWeatherPageDOM(city);
+        searchWeather(city);
+        
+        // Add enter classes
+        app.classList.remove('page-exit-active');
+        app.classList.add('page-enter');
+        
+        requestAnimationFrame(() => {
+            app.classList.add('page-enter-active');
+            app.classList.remove('page-enter');
+        });
+    }, 500);
 }
 
 // Function to get the appropriate icon based on Visual Crossing icon code

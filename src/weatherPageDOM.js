@@ -1,4 +1,4 @@
-import { getWeatherIcon, getWeatherBackground, loadWeatherPage } from './weatherPage.js';
+import { getWeatherIcon, getWeatherBackground, loadWeatherPage, searchWeather } from './weatherPage.js';
 import humidityIcon from './assets/icons/hygrometer/hygrometer-50.png';
 import windIcon from './assets/icons/windsock/windsock-50.png';
 import pressureIcon from './assets/icons/barometer/barometer-50.png';
@@ -10,7 +10,6 @@ export function loadWeatherPageDOM(city) {
     const app = document.getElementById('app');
 
     const weatherPageHTML = `
-        <div class="background-container"></div>
         <div class="weather-container">
             <div class="left">
                 <div class="new-search">
@@ -225,6 +224,7 @@ export function updateWeatherDOM(city, data) {
     }
     
     // Convert to number for proper comparison (6 AM to 6 PM = 6 to 18)
+    //future idea: can use sunrise/sunset times from API to determine day/night more accurately
     const hour = parseInt(currentHour);
     isDaytime = hour >= 6 && hour < 18;
     

@@ -5,7 +5,6 @@ export function loadMainPage() {
     const app = document.getElementById('app');
 
     const mainPageHTML = `
-        <div class="background-container"></div>
         <div class="home-container">
             <h1 class="search-header">Please choose a location</h1>
             <div class="search-area">
