@@ -400,6 +400,13 @@ gmp-place-autocomplete::part(option):hover {
     margin-right: auto;
 }
 
+.detail-icon{
+    width: 20px;
+    height: 20px;
+    filter: invert(0.5);
+    margin-right: 10px;
+}
+
 .weekly{
     display: flex;
     flex-direction: column;

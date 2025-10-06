@@ -1,4 +1,9 @@
-import { getWeatherIcon, getWeatherBackground } from './weatherPage.js';
+import { getWeatherIcon, getWeatherBackground, loadWeatherPage } from './weatherPage.js';
+import humidityIcon from './assets/icons/hygrometer/hygrometer-50.png';
+import windIcon from './assets/icons/windsock/windsock-50.png';
+import pressureIcon from './assets/icons/barometer/barometer-50.png';
+import rainIcon from './assets/icons/rain/rain-50.png';
+import sunIcon from './assets/icons/sun/sun-50.png';
 
 
 export function loadWeatherPageDOM(city) {
@@ -40,18 +45,23 @@ export function loadWeatherPageDOM(city) {
                 <div class="details">
                     <h3>Today's Forecast</h3>
                     <div class="detail not-last">
+                        <img class="detail-icon" src="${humidityIcon}" alt="Hygrometer Icon">
                         <p class="detail-item" id="humidity">Humidity: </p><p id="humidity-value">--%</p>
                     </div>
                     <div class="detail not-last">
+                        <img class="detail-icon" src="${windIcon}" alt="Wind Icon">
                         <p class="detail-item" id="wind-speed">Wind Speed: </p><p id="wind-speed-value">--mph</p>
                     </div>
                     <div class="detail not-last">
-                        <p class="detail-item" id="pressure">Pressure: </p><p id="pressure-value">--mb</p>
+                        <img class="detail-icon" src="${pressureIcon}" alt="Pressure Icon">
+                        <p class="detail-item" id="pressure">Pressure: </p><p id="pressure-value">--hPa</p>
                     </div>
                     <div class="detail not-last">
+                        <img class="detail-icon" src="${rainIcon}" alt="Rain Probability Icon">
                         <p class="detail-item" id="probability">Rain Probability: </p><p id="probability-value">--%</p>
                     </div>
                     <div class="detail">
+                        <img class="detail-icon" src="${sunIcon}" alt="UV Index Icon">
                         <p class="detail-item" id="uv-index">UV Index: </p><p id="uv-index-value">--</p>
                     </div>
                 </div>
@@ -146,6 +156,7 @@ export function updateWeatherDOM(city, data) {
     const uvIndex = data ? data.currentConditions.uvindex : '--';
 
     initializeAutocompleteWeatherPage();
+    setupNewSearchButton();
 
     if (uvIndexElem) {
         uvIndexElem.textContent = `${uvIndex}`;
@@ -386,4 +397,18 @@ async function initializeAutocompleteWeatherPage() {
         console.error('Failed to initialize Google Places Autocomplete:', error);
         console.log('Falling back to regular text input');
     }
+}
+
+function setupNewSearchButton() {
+    const newSearchButton = document.getElementById('new-search-button');
+    const searchInput = document.getElementById('search-input-2');
+
+    newSearchButton.addEventListener('click', () => {
+        const city = searchInput.value.trim();
+        if (city) {
+            loadWeatherPage(city);
+            // Clear the input field after search
+            searchInput.value = '';
+        }
+    });
 }
