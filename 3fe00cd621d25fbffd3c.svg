@@ -1,0 +1,237 @@
+<svg width="100%" height="100%" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Night snowy sky gradient -->
+  <defs>
+    <radialGradient id="nightSnowyGradient" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" style="stop-color:#1C1C2E;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#0F0F1A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+    </radialGradient>
+    
+    <filter id="nightSnowCloudShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="3" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+    
+    <filter id="nightSnowGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="moonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="url(#nightSnowyGradient)"/>
+  
+  <!-- Moon partially visible through snow clouds -->
+  <circle cx="950" cy="90" r="35" fill="#F5F5DC" filter="url(#moonGlow)" opacity="0.6">
+    <animate attributeName="opacity" values="0.4;0.8;0.3;0.7;0.2;0.9;0.5" dur="6s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Moon craters -->
+  <g opacity="0.4">
+    <circle cx="943" cy="85" r="5" fill="#E6E6FA">
+      <animate attributeName="opacity" values="0.2;0.6;0.1;0.5;0.1;0.7;0.3" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="955" cy="95" r="3" fill="#E6E6FA">
+      <animate attributeName="opacity" values="0.2;0.6;0.1;0.5;0.1;0.7;0.3" dur="6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Dark snow clouds -->
+  <g filter="url(#nightSnowCloudShadow)">
+    <!-- Heavy snow cloud 1 -->
+    <g opacity="0.9">
+      <circle cx="150" cy="100" r="50" fill="#2C2C2C"/>
+      <circle cx="200" cy="95" r="60" fill="#2C2C2C"/>
+      <circle cx="250" cy="100" r="45" fill="#2C2C2C"/>
+      <circle cx="300" cy="105" r="40" fill="#2C2C2C"/>
+      <circle cx="210" cy="125" r="38" fill="#2C2C2C"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0;25,0;0,0" dur="22s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Heavy snow cloud 2 -->
+    <g opacity="0.8">
+      <circle cx="500" cy="80" r="55" fill="#1A1A1A"/>
+      <circle cx="555" cy="75" r="65" fill="#1A1A1A"/>
+      <circle cx="610" cy="80" r="50" fill="#1A1A1A"/>
+      <circle cx="665" cy="85" r="45" fill="#1A1A1A"/>
+      <circle cx="570" cy="105" r="42" fill="#1A1A1A"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0;-20,0;0,0" dur="28s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Snow cloud 3 covering moon area -->
+    <g opacity="0.7">
+      <circle cx="850" cy="70" r="45" fill="#333333"/>
+      <circle cx="895" cy="65" r="55" fill="#333333"/>
+      <circle cx="940" cy="70" r="40" fill="#333333"/>
+      <circle cx="980" cy="75" r="35" fill="#333333"/>
+      <circle cx="910" cy="90" r="32" fill="#333333"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0;18,0;0,0" dur="24s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- High snow cloud 4 -->
+    <g opacity="0.6">
+      <circle cx="1100" cy="50" r="40" fill="#404040"/>
+      <circle cx="1140" cy="45" r="50" fill="#404040"/>
+      <circle cx="1180" cy="50" r="35" fill="#404040"/>
+      <circle cx="1150" cy="70" r="30" fill="#404040"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0;12,0;0,0" dur="26s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  
+  <!-- Falling snow with night glow effect -->
+  <g fill="#FFFFFF" filter="url(#nightSnowGlow)">
+    <!-- Large snowflakes with glow -->
+    <circle r="3.5" opacity="0.9">
+      <animateMotion dur="9s" repeatCount="indefinite">
+        <mpath href="#nightSnowPath1"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.9;0.9;0" dur="9s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3" opacity="0.8">
+      <animateMotion dur="10s" repeatCount="indefinite">
+        <mpath href="#nightSnowPath2"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.8;0.8;0" dur="10s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="4" opacity="0.9">
+      <animateMotion dur="8s" repeatCount="indefinite">
+        <mpath href="#nightSnowPath3"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.9;0.9;0" dur="8s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3.2" opacity="0.8">
+      <animateMotion dur="9.5s" repeatCount="indefinite">
+        <mpath href="#nightSnowPath4"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.8;0.8;0" dur="9.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3.8" opacity="0.9">
+      <animateMotion dur="8.5s" repeatCount="indefinite">
+        <mpath href="#nightSnowPath5"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.9;0.9;0" dur="8.5s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Medium snowflakes -->
+    <circle r="2.5" opacity="0.7">
+      <animateMotion dur="11s" repeatCount="indefinite">
+        <mpath href="#nightSnowPath6"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.7;0.7;0" dur="11s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="2.2" opacity="0.6">
+      <animateMotion dur="12s" repeatCount="indefinite">
+        <mpath href="#nightSnowPath7"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.6;0.6;0" dur="12s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="2.8" opacity="0.7">
+      <animateMotion dur="10.5s" repeatCount="indefinite">
+        <mpath href="#nightSnowPath8"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.7;0.7;0" dur="10.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="2.4" opacity="0.6">
+      <animateMotion dur="11.5s" repeatCount="indefinite">
+        <mpath href="#nightSnowPath9"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.6;0.6;0" dur="11.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="2.6" opacity="0.7">
+      <animateMotion dur="10.8s" repeatCount="indefinite">
+        <mpath href="#nightSnowPath10"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.7;0.7;0" dur="10.8s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Small snowflakes -->
+    <circle r="1.8" opacity="0.5">
+      <animateMotion dur="13s" repeatCount="indefinite">
+        <mpath href="#nightSnowPath11"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.5;0.5;0" dur="13s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="1.5" opacity="0.4">
+      <animateMotion dur="14s" repeatCount="indefinite">
+        <mpath href="#nightSnowPath12"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.4;0.4;0" dur="14s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="1.7" opacity="0.5">
+      <animateMotion dur="12.5s" repeatCount="indefinite">
+        <mpath href="#nightSnowPath13"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.5;0.5;0" dur="12.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="1.6" opacity="0.4">
+      <animateMotion dur="13.5s" repeatCount="indefinite">
+        <mpath href="#nightSnowPath14"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.4;0.4;0" dur="13.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="1.9" opacity="0.5">
+      <animateMotion dur="12.8s" repeatCount="indefinite">
+        <mpath href="#nightSnowPath15"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.5;0.5;0" dur="12.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Snow accumulation on ground with night lighting -->
+  <g fill="#E6E6FA" opacity="0.6">
+    <ellipse cx="0" cy="780" rx="200" ry="20"/>
+    <ellipse cx="300" cy="785" rx="250" ry="15"/>
+    <ellipse cx="600" cy="782" rx="280" ry="18"/>
+    <ellipse cx="900" cy="788" rx="200" ry="12"/>
+    <ellipse cx="1200" cy="785" rx="180" ry="15"/>
+  </g>
+  
+  <!-- Subtle stars between clouds -->
+  <g fill="#FFFFFF" filter="url(#nightSnowGlow)" opacity="0.3">
+    <circle cx="100" cy="40" r="1">
+      <animate attributeName="opacity" values="0.2;0.5;0.2" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="400" cy="30" r="0.8">
+      <animate attributeName="opacity" values="0.1;0.4;0.1" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="700" cy="35" r="1.2">
+      <animate attributeName="opacity" values="0.15;0.45;0.15" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1100" cy="25" r="0.9">
+      <animate attributeName="opacity" values="0.1;0.35;0.1" dur="4.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Night snow paths for animation -->
+  <defs>
+    <!-- Large snowflake paths -->
+    <path id="nightSnowPath1" d="M80,-50 Q100,200 70,400 Q90,600 60,850"/>
+    <path id="nightSnowPath2" d="M280,-60 Q260,180 300,380 Q270,580 320,840"/>
+    <path id="nightSnowPath3" d="M480,-40 Q500,160 460,360 Q490,560 440,830"/>
+    <path id="nightSnowPath4" d="M680,-55 Q660,170 700,370 Q670,570 720,845"/>
+    <path id="nightSnowPath5" d="M880,-45 Q900,190 860,390 Q890,590 840,835"/>
+    
+    <!-- Medium snowflake paths -->
+    <path id="nightSnowPath6" d="M130,-70 Q150,150 120,350 Q140,550 110,820"/>
+    <path id="nightSnowPath7" d="M330,-50 Q310,160 350,360 Q320,560 370,830"/>
+    <path id="nightSnowPath8" d="M530,-65 Q550,180 510,380 Q540,580 490,840"/>
+    <path id="nightSnowPath9" d="M730,-40 Q710,170 750,370 Q720,570 770,825"/>
+    <path id="nightSnowPath10" d="M930,-60 Q950,150 910,350 Q940,550 890,835"/>
+    
+    <!-- Small snowflake paths -->
+    <path id="nightSnowPath11" d="M180,-80 Q200,140 170,340 Q190,540 160,810"/>
+    <path id="nightSnowPath12" d="M380,-45 Q360,165 400,365 Q370,565 420,825"/>
+    <path id="nightSnowPath13" d="M580,-70 Q600,155 560,355 Q590,555 540,815"/>
+    <path id="nightSnowPath14" d="M780,-55 Q760,175 800,375 Q770,575 820,830"/>
+    <path id="nightSnowPath15" d="M980,-65 Q1000,145 960,345 Q990,545 940,820"/>
+  </defs>
+</svg>

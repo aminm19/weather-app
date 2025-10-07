@@ -1,0 +1,203 @@
+<svg width="100%" height="100%" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Day snowy sky gradient -->
+  <defs>
+    <linearGradient id="daySnowyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#B0C4DE;stop-opacity:1" />
+      <stop offset="40%" style="stop-color:#D6E3F0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F0F8FF;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="snowCloudShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+    
+    <filter id="snowGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="url(#daySnowyGradient)"/>
+  
+  <!-- Dimmed sun behind snow clouds -->
+  <circle cx="180" cy="100" r="40" fill="#FFFACD" opacity="0.4" filter="url(#snowGlow)">
+    <animate attributeName="opacity" values="0.3;0.5;0.3;0.4;0.2;0.6;0.4" dur="5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Snow clouds -->
+  <g filter="url(#snowCloudShadow)">
+    <!-- Heavy snow cloud 1 -->
+    <g opacity="0.75">
+      <circle cx="120" cy="90" r="45" fill="#C8C8C8"/>
+      <circle cx="165" cy="85" r="55" fill="#C8C8C8"/>
+      <circle cx="210" cy="90" r="50" fill="#C8C8C8"/>
+      <circle cx="255" cy="95" r="40" fill="#C8C8C8"/>
+      <circle cx="180" cy="115" r="35" fill="#C8C8C8"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0;30,0;0,0" dur="20s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Heavy snow cloud 2 -->
+    <g opacity="0.65">
+      <circle cx="450" cy="110" r="50" fill="#BEBEBE"/>
+      <circle cx="500" cy="105" r="60" fill="#BEBEBE"/>
+      <circle cx="550" cy="110" r="45" fill="#BEBEBE"/>
+      <circle cx="600" cy="115" r="40" fill="#BEBEBE"/>
+      <circle cx="515" cy="135" r="38" fill="#BEBEBE"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0;-25,0;0,0" dur="25s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Snow cloud 3 -->
+    <g opacity="0.9">
+      <circle cx="750" cy="80" r="40" fill="#E0E0E0"/>
+      <circle cx="790" cy="75" r="50" fill="#E0E0E0"/>
+      <circle cx="830" cy="80" r="35" fill="#E0E0E0"/>
+      <circle cx="865" cy="85" r="30" fill="#E0E0E0"/>
+      <circle cx="800" cy="100" r="28" fill="#E0E0E0"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0;20,0;0,0" dur="18s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- High snow cloud 4 -->
+    <g opacity="0.6">
+      <circle cx="1000" cy="60" r="35" fill="#DCDCDC"/>
+      <circle cx="1035" cy="55" r="45" fill="#DCDCDC"/>
+      <circle cx="1070" cy="60" r="30" fill="#DCDCDC"/>
+      <circle cx="1040" cy="75" r="25" fill="#DCDCDC"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0;15,0;0,0" dur="22s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  
+  <!-- Falling snow - multiple layers with different sizes and speeds -->
+  <g fill="#F8F8FF" filter="url(#snowGlow)" stroke="#E6E6FA" stroke-width="0.2">
+    <!-- Large snowflakes -->
+    <circle r="3" opacity="0.9">
+      <animateMotion dur="8s" repeatCount="indefinite">
+        <mpath href="#snowPath1"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.9;0.9;0" dur="8s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="2.5" opacity="0.8">
+      <animateMotion dur="9s" repeatCount="indefinite">
+        <mpath href="#snowPath2"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.8;0.8;0" dur="9s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3.5" opacity="0.9">
+      <animateMotion dur="7s" repeatCount="indefinite">
+        <mpath href="#snowPath3"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.9;0.9;0" dur="7s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="2.8" opacity="0.8">
+      <animateMotion dur="8.5s" repeatCount="indefinite">
+        <mpath href="#snowPath4"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.8;0.8;0" dur="8.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3.2" opacity="0.9">
+      <animateMotion dur="7.5s" repeatCount="indefinite">
+        <mpath href="#snowPath5"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.9;0.9;0" dur="7.5s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Medium snowflakes -->
+    <circle r="2" opacity="0.7">
+      <animateMotion dur="10s" repeatCount="indefinite">
+        <mpath href="#snowPath6"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.7;0.7;0" dur="10s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="1.8" opacity="0.6">
+      <animateMotion dur="11s" repeatCount="indefinite">
+        <mpath href="#snowPath7"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.6;0.6;0" dur="11s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="2.2" opacity="0.7">
+      <animateMotion dur="9.5s" repeatCount="indefinite">
+        <mpath href="#snowPath8"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.7;0.7;0" dur="9.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="1.9" opacity="0.6">
+      <animateMotion dur="10.5s" repeatCount="indefinite">
+        <mpath href="#snowPath9"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.6;0.6;0" dur="10.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="2.1" opacity="0.7">
+      <animateMotion dur="9.8s" repeatCount="indefinite">
+        <mpath href="#snowPath10"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.7;0.7;0" dur="9.8s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Small snowflakes -->
+    <circle r="1.5" opacity="0.5">
+      <animateMotion dur="12s" repeatCount="indefinite">
+        <mpath href="#snowPath11"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.5;0.5;0" dur="12s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="1.2" opacity="0.4">
+      <animateMotion dur="13s" repeatCount="indefinite">
+        <mpath href="#snowPath12"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.4;0.4;0" dur="13s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="1.4" opacity="0.5">
+      <animateMotion dur="11.5s" repeatCount="indefinite">
+        <mpath href="#snowPath13"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.5;0.5;0" dur="11.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="1.3" opacity="0.4">
+      <animateMotion dur="12.5s" repeatCount="indefinite">
+        <mpath href="#snowPath14"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.4;0.4;0" dur="12.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="1.6" opacity="0.5">
+      <animateMotion dur="11.8s" repeatCount="indefinite">
+        <mpath href="#snowPath15"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0;0.5;0.5;0" dur="11.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Snow accumulation on ground -->
+  <g fill="#FFFAFA" opacity="0.8">
+    <ellipse cx="0" cy="780" rx="200" ry="20"/>
+    <ellipse cx="300" cy="785" rx="250" ry="15"/>
+    <ellipse cx="600" cy="782" rx="280" ry="18"/>
+    <ellipse cx="900" cy="788" rx="200" ry="12"/>
+    <ellipse cx="1200" cy="785" rx="180" ry="15"/>
+  </g>
+  
+  <!-- Snow paths for animation -->
+  <defs>
+    <!-- Large snowflake paths -->
+    <path id="snowPath1" d="M100,-50 Q120,200 90,400 Q110,600 80,850"/>
+    <path id="snowPath2" d="M300,-60 Q280,180 320,380 Q290,580 340,840"/>
+    <path id="snowPath3" d="M500,-40 Q520,160 480,360 Q510,560 460,830"/>
+    <path id="snowPath4" d="M700,-55 Q680,170 720,370 Q690,570 740,845"/>
+    <path id="snowPath5" d="M900,-45 Q920,190 880,390 Q910,590 860,835"/>
+    
+    <!-- Medium snowflake paths -->
+    <path id="snowPath6" d="M150,-70 Q170,150 140,350 Q160,550 130,820"/>
+    <path id="snowPath7" d="M350,-50 Q330,160 370,360 Q340,560 390,830"/>
+    <path id="snowPath8" d="M550,-65 Q570,180 530,380 Q560,580 510,840"/>
+    <path id="snowPath9" d="M750,-40 Q730,170 770,370 Q740,570 790,825"/>
+    <path id="snowPath10" d="M950,-60 Q970,150 930,350 Q960,550 910,835"/>
+    
+    <!-- Small snowflake paths -->
+    <path id="snowPath11" d="M200,-80 Q220,140 190,340 Q210,540 180,810"/>
+    <path id="snowPath12" d="M400,-45 Q380,165 420,365 Q390,565 440,825"/>
+    <path id="snowPath13" d="M600,-70 Q620,155 580,355 Q610,555 560,815"/>
+    <path id="snowPath14" d="M800,-55 Q780,175 820,375 Q790,575 840,830"/>
+    <path id="snowPath15" d="M1000,-65 Q1020,145 980,345 Q1010,545 960,820"/>
+  </defs>
+</svg>
