@@ -2,8 +2,7 @@ body{
     font-family: Nunito, Arial, sans-serif;
     margin: 0;
     position: relative;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,6 +23,27 @@ body{
     filter: brightness(0.5);
     z-index: -999;
     pointer-events: none;
+}
+
+/* Mobile background fix */
+@media (max-width: 768px) {
+    body {
+        align-items: flex-start; /* Allow content to start at top instead of centering */
+        min-height: 100vh;
+        height: auto; /* Let body grow with content */
+    }
+
+    .background-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        z-index: -1;
+    }
 }
 
 #app{
@@ -495,4 +515,93 @@ gmp-place-autocomplete::part(option):hover {
 .day-icon{
     width: 60px;
     height: 60px;
+}
+
+/* Media Query for Mobile/Narrow Screens */
+@media (max-width: 768px) {
+    /* Change weather-container from grid to flex column */
+    .weather-container {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+        gap: 15px;
+        padding: 15px;
+        flex: 1; /* Only on mobile - makes container grow to fill available space */
+    }
+
+    /* Reset grid positioning for mobile */
+    .left, .info, .weekly {
+        grid-column: unset;
+        grid-row: unset;
+        width: 100%;
+    }
+
+    /* Adjust left section for mobile */
+    .left {
+        order: 1;
+        min-height: auto;
+        padding: 15px;
+    }
+
+    /* Info section adjustments */
+    .info {
+        order: 2;
+        padding: 15px;
+    }
+
+    /* Weekly forecast adjustments */
+    .weekly {
+        order: 3;
+        padding: 15px;
+    }
+
+    /* Make weather section more compact on mobile */
+    .weather {
+        height: auto;
+        min-height: 300px;
+        padding: 20px 15px;
+    }
+
+    /* Adjust bottom part layout for smaller screens */
+    .bottom-part {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    /* Stack temperature and icon vertically on very small screens */
+    @media (max-width: 480px) {
+        .bottom-part {
+            align-items: center;
+        }
+        
+        .temps-div {
+            align-items: center;
+            text-align: center;
+        }
+        
+        #temperature {
+            font-size: 36px;
+        }
+        
+        .weather-icon {
+            width: 80px;
+            height: 80px;
+        }
+        
+        .weekly-forecast {
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .day-forecast {
+            flex: 0 1 calc(50% - 5px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+    }
 }
